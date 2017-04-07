@@ -1,0 +1,39 @@
+<ion-view view-title="Activity">
+    <ion-content ng-class="{expanded:isExpanded}"> 
+
+
+        <div class="item card-item" ng-init="getPosts()">
+             <ion-list name="listAll" >
+
+              <ion-item ng-repeat="post in posts">
+
+              <div class="item card-item">
+                    <div  class="card stable-bg  ink-dark">
+                        <div class="item item-avatar item-text-wrap">
+                            <span class="avatar" style="background-image: url('http://localhost:8080/uploads/{{post.author_id}}/profileImage');"></span>
+                            <strong>{{post.author}}</strong>
+                            <br/> <a ng-click="getPost(post._id)" >{{post.body}}</a>
+                            <a class="image" ng-click="getPost(post._id)"><img src="http://localhost:8080/uploads/{{post.image}}">
+                            </a>
+                            <div class="card-footer text-right">
+                                <i class="icon ion-chatbubbles positive"></i> {{post.comments_count}}
+                                <i class="icon ion-heart assertive"></i> 23
+                                <div class="pull-left">
+                                    <i class="icon ion-clock"></i> {{post.date}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+              </ion-item>
+                    <ion-infinite-scroll on-infinite="updatePostsList()" ng-if="!endOfPosts" distance="5%"></ion-infinite-scroll>
+
+            </ion-list>
+        </div>
+    </ion-content>
+</ion-view>
+
+   
+

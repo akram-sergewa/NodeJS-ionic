@@ -1,0 +1,76 @@
+<ion-view view-title="مشاركة">
+    <ion-content ng-class="{expanded:isExpanded}"> 
+
+        <div class="item card-item">
+             <ion-list name="listAll" ng-init="getPost()">
+
+                        <div  class="card stable-bg  ink-dark">
+                        <div class="item item-avatar item-text-wrap">
+                            <span class="avatar" style="background-image: url('http://localhost:8080/uploads/{{post.author_id}}/profileImage');"></span>
+                            <strong>{{post.author}}</strong>
+                            <br/> {{post.body}}
+                            <img src="http://localhost:8080/uploads/{{post.image}}">
+                            
+                            <div class="card-footer text-right">
+                                <i class="icon ion-chatbubbles positive"></i> 6
+                                <a class="icon ion-android-delete danger" ng-click="deletePost()"></a>
+                                <div class="pull-left">
+                                    <i class="icon ion-clock"></i> {{post.date}}
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+
+                       
+
+
+                 
+
+            </ion-list>
+
+        </div>
+
+         <div class="list" dir="rtl">
+
+            <div class="item item-input-inset">
+              <label class="item-input-wrapper">
+                <input type="text" placeholder="تعليق" ng-model="comment.comment">
+              </label>
+              <button class="button button-small" ng-click="submitComment()">
+                ارسل
+              </button>
+            </div>
+
+          </div>
+
+          <div class="item card-item">
+             <ion-list name="listAll">
+                <ion-item ng-repeat="one_comment in comments">
+                    <div  class="card stable-bg  ink-dark">
+                        <div class="item item-avatar item-text-wrap">
+                            <span class="avatar" style="background-image: url('http://localhost:8080/uploads/{{one_comment.author_id}}/profileImage');"></span>
+                            <strong>{{one_comment.author}}</strong>
+                            <br/> {{one_comment.body}}
+                            {{user.name}}
+                            
+                            <div class="card-footer text-right">
+                                <i class="icon ion-chatbubbles positive"></i> 6
+                                <a class="icon ion-android-delete danger" ng-if="one_comment.removable" ng-click="deleteComment(one_comment._id)"></a>
+
+                                <div class="pull-left">
+                                    <i class="icon ion-clock"></i> {{one_comment.date}}
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                </ion-item>
+
+             </ion-list>
+        </div>
+
+      
+    </ion-content>
+</ion-view>
+
+   
+

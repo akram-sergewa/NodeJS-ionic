@@ -1,0 +1,66 @@
+<ion-view view-title="Profile">
+    <ion-content ng-class="{expanded:$scope.isExpanded}"  ng-init="getMyInfo()">
+        <div class="hero slide-up" style="background-image: url('img/profile-bg.jpg');">
+            <div class="content">
+     
+                  <label class="avatar" style="background-image: url('http://localhost:8080/{{profileImagePath}}');">
+                    <input type="file" ng-hide="true" placeholder="file" ng-click="profileImageChanged = true" accept="image/*" file-model="profileImage.file">
+                  </label>
+                
+                <h5><button class="button button-royal burron-small center" ng-show="profileImageChanged" ng-click="uploadProfileImage()">ارفع الصورة الجديدة
+                </button></h5>
+               
+
+                <h3><a class="light" ng-click="updateName()" ng-model="myInfo.name">{{myInfo.name}}</a></h3>
+                <h4>dragon_mommy</h4>
+            </div>
+        </div>
+        <div class="tabs tabs-dark tabs-icon-top static">
+            <a ui-sref="app.activity" class="tab-item">
+                <i class="icon ion-arrow-graph-up-right"></i> Activity
+            </a>
+            <a ui-sref="app.friends" class="tab-item">
+                <i class="icon ion-android-people"></i> Friends
+            </a>
+            <a ui-sref="app.gallery" class="tab-item">
+                <i class="icon ion-images"></i> Photos
+            </a>
+        </div>
+        <h4 class="content padding double-padding-x">معلوماتي</h4>
+        <div class="list animate-fade-slide-in-right " dir="rtl">
+            
+            <div class="item item-avatar item-icon-right" >
+                <img src="img/address.png">
+                <h2>مكان السكن</h2>
+                <label class="item item-input">
+                    <input type="text" placeholder="مكان السكن" ng-change="addressChanged = true" ng-model="myInfo.address">
+                </label>
+                <a class="icon ion-checkmark" ng-show="addressChanged" ng-click="updateAddress(myInfo.address)"></a>
+            </div>
+            <div class="item item-avatar item-icon-right" >
+                <img src="img/education.png">
+                <h2>التعليم</h2>
+                <label class="item item-input">
+                    <input type="text" placeholder="مكان السكن" ng-change="educationChanged = true" ng-model="myInfo.education">
+                </label>
+                <a class="icon ion-checkmark" ng-show="educationChanged" ng-click="updateEducation(myInfo.education)"></a>
+            </div>
+            <div class="item item-avatar item-icon-right" >
+                <img src="img/workplace.png">
+                <h2>الوظيفة</h2>
+                <label class="item item-input">
+                    <input type="text" placeholder="مكان السكن" ng-change="workPlaceChanged = true" ng-model="myInfo.workPlace">
+                </label>
+                <a class="icon ion-checkmark" ng-show="workPlaceChanged" ng-click="updateWorkPlace(myInfo.workPlace)"></a>
+            </div>
+            <div class="item item-avatar item-icon-right" >
+                <img src="img/telephone.png">
+                <h2>رقم الهاتف</h2>
+                <label class="item item-input">
+                    <input type="text" placeholder="مكان السكن" ng-change="telephoneChanged = true" ng-model="myInfo.telephone">
+                </label>
+                <a class="icon ion-checkmark" ng-show="telephoneChanged" ng-click="updateTelephone(myInfo.telephone)"></a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

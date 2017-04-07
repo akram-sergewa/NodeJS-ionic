@@ -1,0 +1,41 @@
+<ion-view view-title="Activity">
+    <ion-content ng-class="{expanded:isExpanded}" class="animate-fade-slide-in"> 
+
+        <div class="hero no-header flat">
+            <div class="content">
+                <div class="app-icon"></div>
+                <h2>وين نلقى في طرابلس؟</h2>
+            </div>
+        </div>
+
+
+        <div class="list" dir="rtl">
+  
+          <div class="row">
+            <div class="col">
+                <div class="text-center">
+                    <h5 style="text-align: center;">قم بكتابة سؤالك أو ادخل على آخر الأسئلة</h5>
+                </div>
+            </div>
+        </div>
+
+
+
+            <div class="list text-center">
+
+             <div class="item-input-inset">
+                  <label class="item-input-wrapper">
+                   <input type="text" placeholder="سؤالك" ng-model="newPost.body">
+                  </label>
+               </div>
+
+              <label class="fileUpload button button-assertive icon ion-android-camera center">
+                	<input type="file" class="upload" accept="image/*" file-model="newPost.file"/>
+              </label>
+            <button class="fileUpload button button-balanced icon ion-android-send center" ng-click="submit()"></button>
+            </div>
+        </div>
+
+      
+    </ion-content>
+</ion-view>

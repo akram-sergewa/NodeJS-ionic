@@ -1,0 +1,10 @@
+
+var mongoose = require('mongoose');
+
+module.exports = mongoose.model('message',{
+	id: String,
+	username: String,
+	fromusername: String,
+	message: String,
+	date: String
+});
